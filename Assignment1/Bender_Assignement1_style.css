@@ -1,0 +1,123 @@
+html{
+    background-color: #170312;
+    margin: .5rem;
+    padding: .5rem;
+    color: black;
+    font: Georgia, serif;
+    text-align: center;
+}
+
+#head{
+    padding: .5rem;
+    margin: .5rem;
+    font-size: 45px;
+    color: #A0ACAD;
+}
+
+#todo{
+    background-color: #531253;
+    padding: .5rem;
+    margin: .5rem;
+    width: 350px;
+    color: #A0ACAD;
+}
+
+#progress{
+    background-color: #531253;
+    padding: .5rem;
+    margin: .5rem;
+    width: 350px;
+    color: #A0ACAD;
+}
+
+#done{
+    background-color: #531253;
+    padding: .5rem;
+    margin: .5rem;
+    width: 350px;
+    color: #A0ACAD;
+}
+.SectionTitle{
+    font-size: 30px;
+}
+
+#create{
+    background-color: #33032f;
+    color: white;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+#create:after { 
+    content: "";
+    display: table;
+    clear: both;
+    overflow: hidden;
+}
+
+#createTaskButton{
+    background-color: #97d8b2;
+    padding: .25rem;
+    float: right;
+    margin: .5rem;
+}
+
+#createTaskButton:hover{
+     background-color: #89cff0;
+}
+
+#txtTask{
+    width: 95%;
+    padding: .25rem;
+}
+
+li{
+    word-wrap: break-word;
+    list-style-type: none;
+    background-color: #33032f;
+    color: white;
+    padding: 1rem;
+    margin: 1rem;
+    margin-left: -1.5rem;
+}
+
+button{
+    float: right; 
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-top: 1rem; 
+    margin-bottom: 0rem;
+    background-color: #97d8b2;
+    padding: .25rem;
+}
+
+button:hover{
+    background-color: #89cff0;
+}
+
+li:after { 
+    content: "";
+    display: table;
+    clear: both;
+    overflow: hidden;
+}
+
+.flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    background-size: auto;
+    flex-direction: row;
+}
+
+@media all and (max-width: 300px){
+    .flexbox{
+        flex-direction: column;
+    }
+}
+
+#createTaskButton{
+    font: Georgia, serif;
+    color: black;
+}
