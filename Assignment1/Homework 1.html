@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>The Simplest Kanban Board</h1>
+<p>In project management, there is a concept of a <a href="https://www.atlassian.com/agile/kanban/boards" target="_blank" rel="noopener">kanban board</a> in which tasks are placed into columns that comprise a workflow. A simple example would be three columns: to-do, in progress, and complete. When you create a task such as "walk the dog", it begins in the first column and will then progress to the next column until it reaches completion.</p>
+<p>This homework assignment will be to create an HTML page that will offer basic kanban board functionality that meets the following criteria.</p>
+<h2>Technical Criteria</h2>
+<p><em><strong>NO</strong></em> external libraries allowed. You can <em>not</em> use CSS framework such as Bootstrap. You can <em>not</em> use JavaScript libraries such as JQuery. The goal of the assignment is to get you comfortable with the core APIs and functionality of the browser before you leverage tools that abstract it away from you. You don't start learning how to drive in a Ferrari :)</p>
+<h2>Functional Criteria</h2>
+<h3>Layout specifications:</h3>
+<p>There will be 3 columns or "lanes." <strong>Todo</strong>, <strong>In</strong> <strong>Progress</strong> and <strong>Completed</strong>. On a screen with a lot of width (such as a computer), these 3 columns will expand to take up the entire width of the viewport. Each column should have a clear title at the top denoting which column it is. Use <strong>flexbox</strong> to achieve this layout.</p>
+<p><img src="3_columns.png" alt="3 columns taking up the entire width of the screen, evenly dispersed" title="3 columns taking up the entire width of the screen, evenly dispersed" width="782" height="294" /></p>
+<h4>Responsive design:</h4>
+<p>This web page should be <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" rel="noopener">responsive</a>&nbsp;and render appropriately based on different screen dimensions. For narrower screens (less pixel width) such as mobile phones, the 3 columns should re-flow to a single column where the "lanes" are stacked on top of each-other. Resizing your browser window and using <a href="https://developers.google.com/web/tools/chrome-devtools/device-mode" target="_blank" rel="noopener">mobile device simulation in Chrome</a> will help you test. For grading purposes, your website will be tested on the iPhone X configuration.</p>
+<table style="border-style: none; height: 36px; width: 695px;">
+<tbody>
+<tr style="height: 18px;">
+<td style="height: 18px; width: 153px;"><span style="color: #009e0f;"><strong>Good</strong></span></td>
+<td style="width: 16px;"><strong>&nbsp;</strong></td>
+<td style="width: 244px;"><strong><span style="color: #ff9900;">Okay-ish</span></strong> (Confusing layout)</td>
+<td style="width: 17px;"></td>
+<td style="width: 233px;"><span style="color: #cc0000;"><strong>Bad</strong></span> (Too narrow)</td>
+</tr>
+<tr style="height: 18px;">
+<td style="height: 18px; width: 153px;"><img src="PastedImage_ega6zrfnyyocvyfi615eh6fdvdv8z72s00181658602.png" width="153" height="295" /></td>
+<td style="width: 16px;"></td>
+<td style="width: 244px;"><img src="PastedImage_ty2ewga2r0dxencdkq5es3u6ornt90f400181658602.png" width="241" height="301" /></td>
+<td style="width: 17px;"></td>
+<td style="width: 233px;"><img src="PastedImage_31c3nhmcjyg3zz6868k5esdjjesmwf8h00181658602.png" width="211" height="303" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Column specifications:</h3>
+<ul>
+<li><strong>Todo</strong>: The first item or "card" in this column will be a form where the user can enter text to represent the task. Below it will be a right-aligned button to append this task to the items in the "Todo" column. The "create task card" should always remain first in the list.
+<ul>
+<li>When a card is added to the "Todo" column, there should also be a right-aligned button below the task description that states "Start Task". When clicked, the corresponding card should be removed from the "Todo" column and placed within the "In Progress" column, appended to the bottom.</li>
+</ul>
+</li>
+<li><strong>In Progress</strong>: The cards will have only one functional difference from the ones in "Todo" - the button associated with each card will no longer show "Start Task", but "Compete Task" instead. When this button is clicked, it should be removed from the "In Progress" column and appended to the cards present in the "Completed" column.</li>
+<li><strong>Completed</strong>: The cards in the "Completed" column will no longer have a button, and will simply rest in their terminal state in this column.</li>
+</ul>
+<h2>Styling Criteria:</h2>
+<p>Make it look good! Effort really shows here. There are only a few strict guidelines:</p>
+<ol>
+<li>There must be reasonable spacing between elements so they are not up against each-other. Keep your padding and margins consistent! It's an awkward and sloppy look if the text within a card has 1rem of space between the left edge of the card, and 1.5 from the right.</li>
+<li>The buttons on the bottom of the cards (e.g. "Start Task", "Complete Task") should be right aligned.</li>
+<li>Use some color. Try an online color palette generator and style your elements.</li>
+<li>Use a custom font. Don't leave it at the default.</li>
+</ol>
+<h2>Suggestions &amp; resources for completing the assignment</h2>
+<p>If you do not have a preferred editor/IDE, I recommend <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools" target="_blank" rel="noopener">Familiarize yourself with Chrome's developer tools</a>. This will be your <em>best</em> friend in this class. One of the killer features for this assignment would be to <a href="https://developers.google.com/web/tools/chrome-devtools/css" target="_blank" rel="noopener">see the padding/margin for elements, and see the applied styles</a>.</p>
+<p>Tackle the design &amp; layout first. Start adding some dummy elements onto the page filled with random <a href="https://loremipsum.io/" target="_blank" rel="noopener">lorem ipsum</a> text. Ensure that the structure of your HTML DOM and all of your various <em>&lt;div&gt;</em> and <em>&lt;p&gt;</em> tags work the way you want them too, before you start dynamically altering them with JavaScript.</p>
+<p>When you're ready to take on the button behavior, experiment in the Developer tools Javascript <em>Console</em>. Write some code to grab a DOM element by its class or ID and assign it to a variable. See what API methods you have available to you. Working in this REPL will be much faster than trying to write your code in a separate javascript file and having to refresh the page every time you make a change!</p>
+<h3>Hints</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries" target="_blank" rel="noopener">CSS lets you change a style based on parameters like screen width</a></p>
+<h3>Documentation Resources (You need to skim these before you start)</h3>
+<p>Getting started with the web. See "HTML basics", "CSS basics", "JavaScript basics": <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web">https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web</a></p>
+<p>Inline vs block behavior of HTML elements: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow</a></p>
+<p>Introduction to CSS layout: <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction</a></p>
+<p>Flexbox: <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox</a></p>
+<p>More Flexbox: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></p>
+<p>Manipulating the DOM with JavaScript: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents</a></p>
+<h2>Submission Details</h2>
+<p>Send me a <em><span style="text-decoration: underline;">zip</span></em> file with a&nbsp;<em>html</em> file that I can double click to open in my browser. It is highly recommended (but not required) to have your CSS and JavaScript in separate files.</p>
+</body>
+</html>
