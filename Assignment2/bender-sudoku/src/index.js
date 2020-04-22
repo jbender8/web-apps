@@ -5,45 +5,177 @@ import { makepuzzle, solvepuzzle } from "sudoku";
 
 
 
+var puzzle = makepuzzle();
 
-var puzzle = makepuzzle()
+function Square(props) {
+  return (
+    <input
+        type="text" 
+        maxLength="1"
+        value={props.value} 
+        className="square"
+        readOnly= {props.value != null}     
+
+     >
+      </input>
+  );
+}
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    const squares = puzzle;
     this.handleChange = this.handleChange.bind(this);
+    this.solve = this.solve.bind(this);
+
     this.state = {
-      squares: squares,
+      squares: puzzle,
     };
+
   }
-  
-  handleChange(event) {
-    const squares = puzzle;
-    const value = parseInt(event.target.value, 10);
+
+  solve(){
+    const squares = this.state.squares;
+     
+    squares[1] = solvepuzzle(squares)[1];
+    squares[2] = solvepuzzle(squares)[2];
+    squares[3] = solvepuzzle(squares)[3];
+    squares[4] = solvepuzzle(squares)[4];
+    squares[5] = solvepuzzle(squares)[5];
+    squares[6] = solvepuzzle(squares)[6];
+    squares[7] = solvepuzzle(squares)[7];
+    squares[8] = solvepuzzle(squares)[8];
+    squares[9] = solvepuzzle(squares)[9];
+    squares[10] = solvepuzzle(squares)[10];
+    squares[11] = solvepuzzle(squares)[11];
+    squares[12] = solvepuzzle(squares)[12];
+    squares[13] = solvepuzzle(squares)[13];
+    squares[14] = solvepuzzle(squares)[14];
+    squares[15] = solvepuzzle(squares)[15];
+    squares[16] = solvepuzzle(squares)[16];
+    squares[17] = solvepuzzle(squares)[17];
+    squares[18] = solvepuzzle(squares)[18];
+    squares[19] = solvepuzzle(squares)[19];
+    squares[20] = solvepuzzle(squares)[20];
+    squares[21] = solvepuzzle(squares)[21];
+    squares[22] = solvepuzzle(squares)[22];
+    squares[23] = solvepuzzle(squares)[23];
+    squares[24] = solvepuzzle(squares)[24];
+    squares[25] = solvepuzzle(squares)[25];
+    squares[26] = solvepuzzle(squares)[26];
+    squares[27] = solvepuzzle(squares)[27];
+    squares[28] = solvepuzzle(squares)[28];
+    squares[29] = solvepuzzle(squares)[29];
+    squares[30] = solvepuzzle(squares)[30];
+    squares[31] = solvepuzzle(squares)[31];
+    squares[32] = solvepuzzle(squares)[32];
+    squares[33] = solvepuzzle(squares)[33];
+    squares[34] = solvepuzzle(squares)[34];
+    squares[35] = solvepuzzle(squares)[35];
+    squares[36] = solvepuzzle(squares)[36];
+    squares[37] = solvepuzzle(squares)[37];
+    squares[38] = solvepuzzle(squares)[38];
+    squares[39] = solvepuzzle(squares)[39];
+    squares[40] = solvepuzzle(squares)[40];
+    squares[41] = solvepuzzle(squares)[41];
+    squares[42] = solvepuzzle(squares)[42];
+    squares[43] = solvepuzzle(squares)[43];
+    squares[44] = solvepuzzle(squares)[44];
+    squares[45] = solvepuzzle(squares)[45];
+    squares[46] = solvepuzzle(squares)[46];
+    squares[47] = solvepuzzle(squares)[47];
+    squares[48] = solvepuzzle(squares)[48];
+    squares[49] = solvepuzzle(squares)[49];
+    squares[50] = solvepuzzle(squares)[50];
+    squares[51] = solvepuzzle(squares)[51];
+    squares[52] = solvepuzzle(squares)[52];
+    squares[53] = solvepuzzle(squares)[53];
+    squares[54] = solvepuzzle(squares)[54];
+    squares[55] = solvepuzzle(squares)[55];
+    squares[56] = solvepuzzle(squares)[56];
+    squares[57] = solvepuzzle(squares)[57];
+    squares[58] = solvepuzzle(squares)[58];
+    squares[59] = solvepuzzle(squares)[59];
+    squares[60] = solvepuzzle(squares)[60];
+    squares[61] = solvepuzzle(squares)[61];
+    squares[62] = solvepuzzle(squares)[62];
+    squares[63] = solvepuzzle(squares)[63];
+    squares[64] = solvepuzzle(squares)[64];
+    squares[65] = solvepuzzle(squares)[65];
+    squares[66] = solvepuzzle(squares)[66];
+    squares[67] = solvepuzzle(squares)[67];
+    squares[68] = solvepuzzle(squares)[68];
+    squares[69] = solvepuzzle(squares)[69];
+    squares[70] = solvepuzzle(squares)[70];
+    squares[71] = solvepuzzle(squares)[71];
+    squares[72] = solvepuzzle(squares)[72];
+    squares[73] = solvepuzzle(squares)[73];
+    squares[74] = solvepuzzle(squares)[74];
+    squares[75] = solvepuzzle(squares)[75];
+    squares[76] = solvepuzzle(squares)[76];
+    squares[77] = solvepuzzle(squares)[77];
+    squares[78] = solvepuzzle(squares)[78];
+    squares[79] = solvepuzzle(squares)[79];
+    squares[80] = solvepuzzle(squares)[80];
+    squares[0] = null;
+    
+
+    //console.log(this.state.squares)
     this.setState({squares: squares})
-    console.log(this.state.squares);
+    }
+  
+  handleChange = i => event => {
+    if (event === '1'){
+      console.log(i);
+    }
+
+    //console.log(solvepuzzle(this.state.squares));
+    const squares = this.state.squares
+    
+    if (calculateWinner(squares) ){
+      return
+    } 
+    this.state.squares[i] = event.target.value;
+    this.setState({squares: this.state.squares})
+    //console.log(i);
+    //console.log(event.target.value);
+    //console.log(this.state.squares);
+
   }
 
   renderSquare(i) {
-    console.log(this.state.squares[i])
-    
+    //console.log(this.state.squares);
+    //console.log(solvepuzzle(this.state.squares));
+    //const hint = this.state.squares[i] != null;
+    const hintstyle = {
+      background: '#9d9dff'
+    }
     return (
-      <input
+
+      <Square
+        className="hint"
+        value={this.state.squares[i]}
+        onChange={this.handleChange(i)} 
+        //readOnly= {this.state.squares[i] != null}     
+      />
+      
+      /*<input
         type="text" 
-        ref={this.textInput}
+        maxLength="1"
         value={this.state.squares[i]} 
         className="square"
-        readOnly= {this.state.squares[i] != null}
-        onChange={this.handleChange} 
+        contentEditable={this.state.squares[i] != null}
+        //readOnly= {this.state.squares[i] != null}
+        onChange={this.handleChange(i)} 
       >
       </input>
+      */
     );
   }
 
   render() {
       return (
         <div>
+
           <div className="board-row" id = "row1">
             {this.renderSquare(0)}
             {this.renderSquare(1)}
@@ -143,6 +275,7 @@ class Board extends React.Component {
             {this.renderSquare(79)}
             {this.renderSquare(80)}
           </div>
+          <button className = 'solvePuzzle'  onClick={this.solve} >Complete Most of Puzzle </button>
         </div>
       );
     }
@@ -151,9 +284,16 @@ class Board extends React.Component {
   class Game extends React.Component {
 
     render() {
-      let status;
-        status = "Not Complete... ";
 
+      //const solve = this.setState({squares: solvepuzzle(this.state.squares)})
+
+      const winner = calculateWinner();
+      let status;
+      if (winner){
+        status = "Complete"
+      } else{
+        status = "Not Complete... ";
+      }
       return (
         <div className="game">
         <div className= "Title">
@@ -168,7 +308,6 @@ class Board extends React.Component {
           <Board/>
         </div>
         <div className="game-info">
-          <button onClick={() => solvepuzzle()} >Complete Most of Puzzle </button>
           <p></p>
           <div>{status}</div>
           <ol>{/* TODO */}</ol>
@@ -182,24 +321,12 @@ class Board extends React.Component {
   // ========================================
   
   ReactDOM.render(<Game />, document.getElementById("root"));
-  /*
+  
   function calculateWinner(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
-  }
-  */
+    for (var i = 0; i < squares; i++) {
+    if (squares[i] == null ){
+      return null
+    } 
+    return squares;
+    
+  }}

@@ -29,8 +29,8 @@ ol, ul {
   border-right: 3px solid black;
 }
 
-.square[readOnly]{
-  background: #87CEFA;
+input[readOnly]{
+  background: #9d9dff;
 }
 
 .Title{
@@ -49,6 +49,57 @@ ol, ul {
   border-left: 3px solid black;
 }
 
+.status {
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.square {
+  background: #d8d8ff;
+  border: .5px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+.solvePuzzle{
+  margin-top: 13px;
+  margin-left: 60px;
+  font-size: 15px;
+  background: #9d9dff;
+  align-content: center;
+}
+.game {
+  display: flex;
+  flex-direction: row;
+  margin: 4px;
+}
+.square::before{
+  background: #9d9dff;
+}
+.Title{
+  padding: 1px;
+  margin-right: 17px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.game-info {
+  margin-left: 20px;
+}
 .status {
   margin-bottom: 10px;
 }
