@@ -7,7 +7,7 @@ import { makepuzzle, solvepuzzle } from "sudoku";
 
 var puzzle = makepuzzle();
 
-function Square(props) {
+/*function Square(props) {
   return (
     <input
         type="text" 
@@ -19,7 +19,7 @@ function Square(props) {
      >
       </input>
   );
-}
+}*/
 
 class Board extends React.Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class Board extends React.Component {
     };
 
   }
+
 
   solve(){
     const squares = this.state.squares;
@@ -124,21 +125,21 @@ class Board extends React.Component {
     }
   
   handleChange = i => event => {
-    if (event === '1'){
-      console.log(i);
-    }
+    //if (event === '1'){
+    //  console.log(i);
+    //}
 
-    //console.log(solvepuzzle(this.state.squares));
-    const squares = this.state.squares
+    const squares = this.state.squares.slice();
     
-    if (calculateWinner(squares) ){
-      return
+    if (calculateWinner(squares)){
+      return;
     } 
-    this.state.squares[i] = event.target.value;
+    this.state.squares[i] = parseInt(event.target.value);
     this.setState({squares: this.state.squares})
-    //console.log(i);
+    console.log(i);
+    console.log(solvepuzzle(this.state.squares));
     //console.log(event.target.value);
-    //console.log(this.state.squares);
+    console.log(this.state.squares);
 
   }
 
@@ -150,32 +151,44 @@ class Board extends React.Component {
       background: '#9d9dff'
     }
     return (
-
+      /*
       <Square
         className="hint"
         value={this.state.squares[i]}
         onChange={this.handleChange(i)} 
         //readOnly= {this.state.squares[i] != null}     
       />
-      
-      /*<input
+      */
+      <input
         type="text" 
         maxLength="1"
         value={this.state.squares[i]} 
         className="square"
         contentEditable={this.state.squares[i] != null}
-        //readOnly= {this.state.squares[i] != null}
+        readOnly= {this.state.squares[i] != null}
         onChange={this.handleChange(i)} 
       >
       </input>
-      */
+      
     );
   }
 
   render() {
+    const winner = calculateWinner(this.state.squares);
+    let status;
+    if (winner){
+      status = "Complete"
+      //console.log(this.state.squares)
+      //style = "border-left: 3px solid green;"
+
+    } else{
+      status = "Not Complete";
+      //console.log(this.state.squares)
+    }
+
       return (
         <div>
-
+          <div className="status">{status}</div>
           <div className="board-row" id = "row1">
             {this.renderSquare(0)}
             {this.renderSquare(1)}
@@ -285,15 +298,6 @@ class Board extends React.Component {
 
     render() {
 
-      //const solve = this.setState({squares: solvepuzzle(this.state.squares)})
-
-      const winner = calculateWinner();
-      let status;
-      if (winner){
-        status = "Complete"
-      } else{
-        status = "Not Complete... ";
-      }
       return (
         <div className="game">
         <div className= "Title">
@@ -309,7 +313,7 @@ class Board extends React.Component {
         </div>
         <div className="game-info">
           <p></p>
-          <div>{status}</div>
+          <div>{/*status*/}</div>
           <ol>{/* TODO */}</ol>
         </div>
       </div>
@@ -323,10 +327,14 @@ class Board extends React.Component {
   ReactDOM.render(<Game />, document.getElementById("root"));
   
   function calculateWinner(squares) {
-    for (var i = 0; i < squares; i++) {
-    if (squares[i] == null ){
-      return null
-    } 
-    return squares;
+    var i = 1;
+    //while(i < squares.length){
+    //  for (var a = 0; a < squares.length;) {
+        if (JSON.stringify(squares) === JSON.stringify(solvepuzzle(squares) ){
+          //a++;
+          return null;
+        } 
+        return squares;
+        
     
-  }}
+  }
