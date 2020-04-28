@@ -13,6 +13,8 @@ import RefreshIcon from '@material-ui/icons/Refresh';
 import * as moment from 'moment';
 import './index.css';
 
+
+
 class Weather extends React.Component {
   constructor(props) {
     super(props);
@@ -20,12 +22,16 @@ class Weather extends React.Component {
       temp: null,
       icon: "err",
       iconDesc: "Current Weather",
-      Degree: 'imperial'
+      Degree: 'imperial',
+      //time: moment.js(1588093311).format('dddd, MMMM Do YYYY, h:mm:ss a')
+      time: null
     };
   }
 
   handleRefresh() {
-    window.location.reload(false);
+    window.location.reload(true);
+    //this.getWeatherF('imperial')
+
   }
 
   handleDegree = (event, newDegree) => {
@@ -47,13 +53,13 @@ class Weather extends React.Component {
         console.dir(response);
         return response.json();
       })
-
       .then((data) => {
         console.dir(data);
         this.setState({
           temp: data.main.temp,
           icon: "http://openweathermap.org/img/wn/" + data.weather[0]["icon"] + "@2x.png",
-          iconDesc: data.weather[0]["description"]
+          iconDesc: data.weather[0]["description"],
+          time: moment.unix(data.dt).format('dddd, MMMM Do YYYY, h:mm:ss a')
         })
         console.log(this.state.temp);
         console.log(this.state.iconDesc);
@@ -68,7 +74,6 @@ class Weather extends React.Component {
       });
   }
 
-
   componentDidMount() {
     this.getWeatherF('imperial')
 
@@ -81,19 +86,21 @@ class Weather extends React.Component {
           avatar={
             <Avatar
               src={this.state.icon}
+              alt={this.state.iconDesc}
               aria-label={this.state.iconDesc}
               className="avatar"
             >
             </Avatar>
           }
           title="Weather"
-          subheader={moment().format('dddd, MMMM Do YYYY, h:mm:ss a')}
+          subheader={this.state.time}
           action={
             <IconButton
               aria-label="refresh"
               onClick={this.handleRefresh}
             >
               <RefreshIcon />
+
             </IconButton>
           }
         >
@@ -123,6 +130,7 @@ class Weather extends React.Component {
           </ToggleButtonGroup>
         </CardActions>
       </Card>
+
     );
   }
 }
