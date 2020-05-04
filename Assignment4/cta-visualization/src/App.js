@@ -122,7 +122,6 @@ class App extends Component {
       <div className="chart">
         <Bar
           data={this.state.chartData}
-          height={250}
           options={{
             title: {
               display: this.props.displayTitle,
@@ -141,8 +140,13 @@ class App extends Component {
                 }
               }],
               yAxes: [{
+                type: 'logarithmic',
                 ticks: {
-                  min: 40000
+                  min: 0,
+                  max: 700000000,
+                  callback: value => {
+                    return Number(value.toString());
+                  }
                 },
                 scaleLabel: {
                   display: this.props.displayYAxesLabel,
