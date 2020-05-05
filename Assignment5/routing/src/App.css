@@ -4,9 +4,9 @@
 .title {
   flex-grow: 1;
 }
-.tabs {
-  padding: 2px;
+.paper {
+  padding: 15px;
   margin: 0px;
   text-align: left;
-  height: 100px;
+  height: 400px;
 }
