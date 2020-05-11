@@ -92,7 +92,6 @@ export default function App() {
   );
 }
 
-/* ALL Function pages */
 function Home() {
   const classes = useStyles();
   return (
@@ -104,7 +103,6 @@ function Home() {
 
 
 function Welcome() {
-  //Key word search ? Maybe add a query if needed
   const classes = useStyles();
   return (
     <main className={classes.content}>
