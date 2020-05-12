@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 import {
   BrowserRouter as Router,
   Switch,
+  useLocation,
   Route,
   Link,
   Redirect
@@ -104,18 +105,24 @@ function Home() {
 
 function Welcome() {
   const classes = useStyles();
+  let query = useQuery();
   return (
     <main className={classes.content}>
       <Toolbar />
-      <p>Welcome!!!</p>
+      <h2>
+        Welcome!
+      </h2>
+      <h2>
+        {query.get("msg")}
+      </h2>
     </main>);
 }
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
-/* form work for Home Page */
+
 class SubmitForm extends React.Component {
-  /*
-  *  Home page to submit the zip code and direct to Stats page
-  */
   constructor(props) {
     super(props);
     this.state = {
