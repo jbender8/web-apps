@@ -1,9 +1,9 @@
 <h1>{{title}}</h1>
 <p>We are here to provide you services that {{corporatebs}}</p>
 
-<form action="/">
-    <label for="wish">Wishlist:</label><br>
-    <input type="text" id="wish" name="wish" placeholder="add new wish"><br>
+<form action="/addwish" method="POST">
+    <label for="newwish">Wishlist:</label><br>
+    <input type="text" id="newwish" name="newwish" placeholder="add new wish"><br>
     <input type="submit" value="Submit">
 
 </form>
