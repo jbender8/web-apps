@@ -7,6 +7,11 @@
     <input type="submit" value="Submit">
 
 </form>
-<ol>
-    <li>{{wish}}</li>
-</ol>
+
+<body>
+    <ol>
+        {{#each wish}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ol>
+</body>

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
+var hbs = require('express-hbs');
+
 
 /* GET home page. */
 bs = "";
@@ -25,6 +27,8 @@ router.get('/', function (req, res, next) {
     wish: wish
   });
 });
+
+
 
 router.get('/counter', function (req, res, next) {
   if (req.session.count !== undefined) {
