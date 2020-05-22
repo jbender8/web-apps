@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
-var hbs = require('express-hbs');
-
 
 /* GET home page. */
 bs = "";
@@ -27,17 +25,5 @@ router.get('/', function (req, res, next) {
     wish: wish
   });
 });
-
-
-
-router.get('/counter', function (req, res, next) {
-  if (req.session.count !== undefined) {
-    req.session.count++;
-    res.send("Welcome back, this your vistit number " + req.session.count);
-  } else {
-    req.session.count = 0;
-    res.send("Hi there, welcome aboard!");
-  }
-})
 
 module.exports = router;
